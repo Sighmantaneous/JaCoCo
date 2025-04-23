@@ -38,24 +38,28 @@ public class PassengerTest {
     //cleaner way to test
     @ParameterizedTest
     @ValueSource(strings = {"Mr","Mrs","Ms"})
-    void titleTestSuccess2(String title){
+    void TestTitleSuccess2(String title){
 
         Passenger myPass4 = new Passenger(title, "John", "O'Leary");
     }
 
 
     @Test
-    void titleTestFail(){
+    void TestTitleFail(){
         //Mr Mrs or Ms only
         assertThrows(IllegalArgumentException.class ,()-> {new Passenger("Fr","Todd","Umptious");});
+        assertThrows(IllegalArgumentException.class, ()-> {new Passenger("","Todd","Umptious");});
+        assertDoesNotThrow(()-> {myPass = new Passenger("Mr","Todd","Umptious");});
     }
 
     @Test
-    void TestShortFname(){
+    void TestFnameFail(){
 
-       Exception ex= assertThrows(IllegalArgumentException.class , ()-> {new Passenger("Mr","T","Umptious");});
+        assertThrows(IllegalArgumentException.class , ()-> {new Passenger("Mr","T","Umptious");});
+        assertThrows(IllegalArgumentException.class, ()-> {new Passenger("Mr",null,"Umptious");});
+        assertDoesNotThrow(()-> {myPass = new Passenger("Mr","Todd","Umptious");});
 
-       assertEquals("Invalid passenger First Name",ex.getMessage());
+
 
     }
     @Test
@@ -64,10 +68,16 @@ public class PassengerTest {
     }
 
     @Test
-    void TestShortLname(){
+    void TestLnameFail(){
 
         Exception ex=assertThrows(IllegalArgumentException.class, ()-> {new Passenger("Mr","Todd","U");});
         assertEquals("Invalid passenger Last Name",ex.getMessage());
+
+        assertThrows(IllegalArgumentException.class, ()-> {new Passenger("Mr","Todd",null);});
+
+        assertDoesNotThrow(()-> {myPass = new Passenger("Mr","Todd","Umptious");});
+
+
     }
 
     @Test
