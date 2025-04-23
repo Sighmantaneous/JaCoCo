@@ -12,7 +12,7 @@ public class Passenger {
 
         }
 
-        if(fname == null || fname.length()< 3 ){
+        if(fname == null || fname.length() < 3 ){
             throw new IllegalArgumentException("Invalid passenger First Name");
         }
         if(lname == null || lname.length()< 3 ){
