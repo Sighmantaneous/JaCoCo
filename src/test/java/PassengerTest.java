@@ -50,5 +50,13 @@ public class PassengerTest {
         assertThrows(IllegalArgumentException.class ,()-> {new Passenger("Fr","Todd","Umptious");});
     }
 
+    @Test
+    void TestShortFname(){
+
+       Exception ex= assertThrows(IllegalArgumentException.class , ()-> {new Passenger("Mr","T","Umptious");});
+
+       assertEquals("Invalid passenger First Name",ex.getMessage());
+
+    }
 
 }
