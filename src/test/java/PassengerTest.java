@@ -59,4 +59,21 @@ public class PassengerTest {
 
     }
 
+    @Test
+    void TestFnameSucc(){
+        assertEquals("Todd",myPass.getFname());
+    }
+
+    @Test
+    void TestShortLname(){
+
+        Exception ex=assertThrows(IllegalArgumentException.class, ()-> {new Passenger("Mr","Todd","U");});
+        assertEquals("Invalid passenger Last Name",ex.getMessage());
+    }
+
+    @Test
+    void TestLnameSucc(){
+        assertEquals("Umptious",myPass.getLname());
+    }
+
 }
