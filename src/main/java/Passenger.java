@@ -5,6 +5,12 @@ public class Passenger {
     private String lname;
 
     public Passenger(String title, String fname, String lname) {
+
+        if(!title.equals("Mr") && !title.equals("Mrs") && !title.equals("Ms")) {
+
+            throw new IllegalArgumentException("Invalid passenger title");
+
+        }
         this.title = title;
         this.fname = fname;
         this.lname = lname;
