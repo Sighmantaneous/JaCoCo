@@ -58,7 +58,6 @@ public class PassengerTest {
        assertEquals("Invalid passenger First Name",ex.getMessage());
 
     }
-
     @Test
     void TestFnameSucc(){
         assertEquals("Todd",myPass.getFname());
@@ -75,5 +74,4 @@ public class PassengerTest {
     void TestLnameSucc(){
         assertEquals("Umptious",myPass.getLname());
     }
-
 }

@@ -15,9 +15,8 @@ public class Passenger {
         if(fname == null || fname.length()< 3 ){
             throw new IllegalArgumentException("Invalid passenger First Name");
         }
-
         if(lname == null || lname.length()< 3 ){
-           throw new IllegalArgumentException("Invalid passenger Last Name");
+            throw new IllegalArgumentException("Invalid passenger Last Name");
         }
         this.title = title;
         this.fname = fname;
